@@ -1,7 +1,9 @@
-import { StyleSheet, Text, View, ScrollView } from 'react-native';
-import { Link } from 'expo-router';
+import { StyleSheet, Text, View, ScrollView, TouchableOpacity } from 'react-native';
+import { useRouter } from 'expo-router';
 
 export default function HomeScreen() {
+  const router = useRouter();
+
   return (
     <ScrollView contentContainerStyle={styles.container}>
       <Text style={styles.title}>Mobilidade Individual</Text>
@@ -14,17 +16,21 @@ export default function HomeScreen() {
         </Text>
       </View>
 
-      <Link href="/regras" asChild>
-        <View style={styles.buttonPrimary}>
-          <Text style={styles.buttonText}>Regras e Limites de Velocidade →</Text>
-        </View>
-      </Link>
+      <TouchableOpacity 
+        style={styles.buttonPrimary} 
+        activeOpacity={0.8}
+        onPress={() => router.push('/regras')}
+      >
+        <Text style={styles.buttonText}>Regras e Limites de Velocidade →</Text>
+      </TouchableOpacity>
 
-      <Link href="/equipamentos" asChild>
-        <View style={styles.buttonSecondary}>
-          <Text style={styles.buttonSecondaryText}>Equipamentos Obrigatórios →</Text>
-        </View>
-      </Link>
+      <TouchableOpacity 
+        style={styles.buttonSecondary} 
+        activeOpacity={0.8}
+        onPress={() => router.push('/equipamentos')}
+      >
+        <Text style={styles.buttonSecondaryText}>Equipamentos Obrigatórios →</Text>
+      </TouchableOpacity>
     </ScrollView>
   );
 }
@@ -32,7 +38,7 @@ export default function HomeScreen() {
 const styles = StyleSheet.create({
   container: {
     padding: 20,
-    maxWidth: 800,
+    maxWidth: 600,
     width: '100%',
     alignSelf: 'center',
   },
@@ -75,6 +81,7 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     alignItems: 'center',
     marginBottom: 12,
+    cursor: 'pointer',
   },
   buttonText: {
     color: '#ffffff',
@@ -88,6 +95,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     borderWidth: 1,
     borderColor: '#1e3a8a',
+    cursor: 'pointer',
   },
   buttonSecondaryText: {
     color: '#1e3a8a',
