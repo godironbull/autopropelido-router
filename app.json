@@ -1,6 +1,7 @@
 {
   "expo": {
-    "name": "autopropelido-router",
+    "name": "Guia de Autopropelidos | CONTRAN 996",
+    "description": "Guia prático e simulador sobre regras de trânsito, limites e equipamentos para patinetes e veículos elétricos.",
     "slug": "autopropelido-router",
     "scheme": "autopropelido",
     "version": "1.0.0",
